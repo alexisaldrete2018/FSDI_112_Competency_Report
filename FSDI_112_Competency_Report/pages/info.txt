@@ -1,0 +1,42 @@
+Rafael GPL to Everyone (5:47 PM)
+# Mini challenge 1
+
+Create the initial setup for our new blog application. 
+
+1. Create a new djangoproject within this folder.
+2. Create the following apps:
+    2.1. pages
+    2.2. posts
+    2.3. accounts
+3. Install your apps.
+4. Create a model for posts (see below).
+5. Make migrations.
+6. Migrate.
+7. Create a ListView, DetailView and CreateView for our new Post model.
+8. Create 2 views for our pages app.
+    8.1. Your home page view.
+    8.2. An about us page.
+9. Create url patterns to ensure everything works as expected (from the end user perspective).
+
+Post model:
+
+```
+
+class Post(model.Model):
+    title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128)
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE
+    )
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+```
+Seth LaFountain to Everyone (5:52 PM)
+i'm forgetting if there are multiple commands for installing Django. I did the pip install Django but when I try to start a project, I need Django-admin as well?
+Rafael GPL to Everyone (5:52 PM)
+yes, pip3 install django is the only command we need, and that installs the django-admin cli for you
+so after pip3 install django, you should have access to it
+Seth LaFountain to Everyone (6:18 PM)
+after makemigrations command we don't have to add the name of the app we're in?
